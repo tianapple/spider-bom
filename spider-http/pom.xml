@@ -70,30 +70,30 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>1.4</version>
-                <executions>
-                    <execution>
-                        <id>include-module</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createSourcesJar>true</createSourcesJar>
-                            <promoteTransitiveDependencies>false</promoteTransitiveDependencies>
-                            <artifactSet>
-                                <includes>
-                                    <!--至少包含一个，否则所有引用的jar都打到spider-http模块-->
-                                    <include>javax.validation:validation-api</include>
-                                </includes>
-                            </artifactSet>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-shade-plugin</artifactId>-->
+                <!--<version>1.4</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>include-module</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>shade</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<createSourcesJar>true</createSourcesJar>-->
+                            <!--<promoteTransitiveDependencies>false</promoteTransitiveDependencies>-->
+                            <!--<artifactSet>-->
+                                <!--<includes>-->
+                                    <!--&lt;!&ndash;至少包含一个，否则所有引用的jar都打到spider-http模块，或者去掉此插件&ndash;&gt;-->
+                                    <!--<include>javax.validation:validation-api</include>-->
+                                <!--</includes>-->
+                            <!--</artifactSet>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
