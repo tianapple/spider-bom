@@ -13,6 +13,7 @@
         <module>spider</module>
         <module>spider-http</module>
         <module>spider-rpc</module>
+        <module>spider-tomcat</module>
     </modules>
 
     <!-- Properties -->
@@ -100,7 +101,7 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>1.1.0</version>
+                <version>1.2.2</version>
             </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
@@ -285,7 +286,7 @@
                     </exclusion>
                     <exclusion>
                         <!--统一使用io.netty-->
-                        <groupId>org.jboss.netty</groupId>
+                        <groupId>io.netty</groupId>
                         <artifactId>netty</artifactId>
                     </exclusion>
                     <exclusion>
