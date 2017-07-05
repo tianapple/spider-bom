@@ -14,6 +14,7 @@
         <module>spider-http</module>
         <module>spider-rpc</module>
         <module>spider-tomcat</module>
+        <module>spider-rpc2</module>
     </modules>
 
     <!-- Properties -->
@@ -107,13 +108,13 @@
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>2.3.7</version>
-                <exclusions>
-                    <!--打包到spider.jar不在单独发布 2016-12-07-->
-                    <exclusion>
-                        <groupId>org.javassist</groupId>
-                        <artifactId>javassist</artifactId>
-                    </exclusion>
-                </exclusions>
+                <!--<exclusions>-->
+                    <!--&lt;!&ndash;打包到spider.jar不在单独发布 2016-12-07 ,考虑独立出来，否则重复的包太多&ndash;&gt;-->
+                    <!--<exclusion>-->
+                        <!--<groupId>org.javassist</groupId>-->
+                        <!--<artifactId>javassist</artifactId>-->
+                    <!--</exclusion>-->
+                <!--</exclusions>-->
             </dependency>
             <dependency>
                 <groupId>org.javassist</groupId>
@@ -173,6 +174,7 @@
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
                 <version>1.0.0.GA</version>
+                <!--1.1.0.Final-->
             </dependency>
             <!--rest如果要使用json序列化-->
             <dependency>

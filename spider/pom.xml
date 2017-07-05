@@ -62,50 +62,12 @@
             <artifactId>HikariCP</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-        </dependency>
-        <!--dubbox-->
-        <!--<dependency>-->
-        <!--<groupId>com.alibaba</groupId>-->
-        <!--<artifactId>dubbo</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.101tec</groupId>-->
-        <!--<artifactId>zkclient</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.esotericsoftware.kryo</groupId>-->
-        <!--<artifactId>kryo</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>de.javakaffee</groupId>-->
-        <!--<artifactId>kryo-serializers</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.zookeeper</groupId>-->
-        <!--<artifactId>zookeeper</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>jline</groupId>-->
-        <!--<artifactId>jline</artifactId>-->
-        <!--</dependency>-->
-        <!--apache util-->
-        <!--<dependency>-->
-        <!--<groupId>commons-io</groupId>-->
-        <!--<artifactId>commons-io</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>commons-lang</groupId>-->
-        <!--<artifactId>commons-lang</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>commons-codec</groupId>-->
-        <!--<artifactId>commons-codec</artifactId>-->
-        <!--</dependency>-->
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
         </dependency>
         <!--日志替换-->
         <dependency>
@@ -168,7 +130,7 @@
                                     <!--<include>org.spider:data-access</include>-->
                                     <include>org.spider:foundation</include>
                                     <!--<include>com.101tec:zkclient</include>-->
-                                    <include>org.javassist:javassist</include>
+                                    <!--<include>org.javassist:javassist</include>-->
                                     <!--<include>jline:jline</include>-->
                                     <include>aopalliance:aopalliance</include>
                                     <!--日志相关-->
