@@ -12,7 +12,6 @@
         <module>foundation</module>
         <module>spider</module>
         <module>spider-http</module>
-        <module>spider-rpc</module>
         <module>spider-tomcat</module>
         <module>spider-rpc2</module>
     </modules>
