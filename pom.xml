@@ -7,7 +7,7 @@
     <groupId>org.spider</groupId>
     <artifactId>spider-bom</artifactId>
     <packaging>pom</packaging>
-    <version>1.5</version>
+    <version>1.5.1</version>
     <modules>
         <module>foundation</module>
         <module>spider</module>
@@ -387,6 +387,19 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
