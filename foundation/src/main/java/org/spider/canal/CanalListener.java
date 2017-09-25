@@ -17,4 +17,11 @@ public interface CanalListener {
      * @param entry     更改记录
      */
     void process(String database, String tableName, CanalEntry.Entry entry) throws InvalidProtocolBufferException;
+
+    /**
+     * 启动之后调用
+     */
+    default void started() {
+
+    }
 }

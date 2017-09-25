@@ -31,7 +31,7 @@
         <repository>
             <id>central</id>
             <name>Private Central Repository</name>
-            <url>http://172.16.10.71:8081/nexus/content/groups/public/</url>
+            <url>http://maven.upotv.cn:8081/nexus/content/groups/public/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -42,12 +42,12 @@
         <snapshotRepository>
             <id>snapshots</id>
             <name>Private Snapshots Project</name>
-            <url>http://172.16.10.71:8081/nexus/content/repositories/snapshots/</url>
+            <url>http://maven.upotv.cn:8081/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
             <id>releases</id>
             <name>Private Releases Project</name>
-            <url>http://172.16.10.71:8081/nexus/content/repositories/releases/</url>
+            <url>http://maven.upotv.cn:8081/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
 
@@ -369,10 +369,16 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <!--其他常用组件-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.7</version>
+            </dependency>
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>2.5.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

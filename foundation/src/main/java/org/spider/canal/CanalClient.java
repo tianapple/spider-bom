@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spider.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,8 +25,15 @@ public class CanalClient {
     private String canalInstance;
     private int batchSize = 100;
 
-    private CanalListener canalListener;
     private boolean running;
+
+    private CanalListener canalListener;
+
+    private List<CanalListener> listeners;
+
+    public void setListeners(List<CanalListener> listeners) {
+        this.listeners = listeners;
+    }
 
     public void setZkAddress(String zkAddress) {
         this.zkAddress = zkAddress;
@@ -44,16 +52,15 @@ public class CanalClient {
     }
 
     public void setCanalListener(CanalListener canalListener) {
+        if (listeners == null) {
+            listeners = new ArrayList<>();
+        }
+        listeners.add(canalListener);
         this.canalListener = canalListener;
     }
 
     public void start() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                process();
-            }
-        });
+        Thread thread = new Thread(this::process, "canal-client");
         thread.start();
         running = true;
     }
@@ -67,6 +74,11 @@ public class CanalClient {
                 LOGGER.info("Ready subscribe....");
                 connector.subscribe(""); //.*\..*
                 LOGGER.info("Canal client start success.");
+
+                for (CanalListener listener : listeners) {
+                    listener.started();
+                }
+
                 while (running) {
                     Message message = connector.getWithoutAck(batchSize); // 获取指定数量的数据
                     long batchId = message.getId();
@@ -113,7 +125,10 @@ public class CanalClient {
             if (!StringUtils.isNullOrEmpty(ignoreTables) && ignoreTables.contains(tableName)) {
                 return;  //忽略的表返回
             }
-            canalListener.process(database, tableName, entry);
+
+            for (CanalListener listener : listeners) {
+                listener.process(database, tableName, entry);
+            }
         }
     }
 
