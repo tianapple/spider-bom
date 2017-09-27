@@ -20,6 +20,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.1.7.RELEASE</spring.version>
+        <!--<spring.version>4.3.11.RELEASE</spring.version>-->
         <resteasy.version>3.0.7.Final</resteasy.version>
         <canal.version>1.0.21</canal.version>
         <netty.version>3.7.0.Final</netty.version>
@@ -101,7 +102,7 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>1.2.2</version>
+                <version>1.2.4</version>
             </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
@@ -245,16 +246,17 @@
                 <artifactId>commons-io</artifactId>
                 <version>2.4</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>commons-lang</groupId>-->
-                <!--<artifactId>commons-lang</artifactId>-->
-                <!--<version>2.6</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>commons-codec</groupId>-->
-                <!--<artifactId>commons-codec</artifactId>-->
-                <!--<version>1.10，默认1.9</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.10</version>
+                <!--默认1.9-->
+            </dependency>
             <!--zookeeper注册-->
             <dependency>
                 <groupId>com.github.sgroschupf</groupId>
@@ -270,7 +272,7 @@
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
-                <version>3.4.6</version>
+                <version>3.4.9</version>
                 <exclusions>
                     <exclusion>
                         <!--做为基础包已添加到spider.jar里面，zk本身在spider-rpc.jar被引用-->
