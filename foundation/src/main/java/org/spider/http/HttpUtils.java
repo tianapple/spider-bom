@@ -12,6 +12,9 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,33 +27,35 @@ public class HttpUtils {
     private static int Default_Timeout = 10000;
 
     //httpGet
-    public static HttpResponse httpGet(String url) throws IOException {
+    public static HttpResponse httpGet(String url) throws IOException, URISyntaxException {
         return httpGetImpl(url, null, Default_Timeout);
     }
 
-    public static HttpResponse httpGet(String url, String contentType) throws IOException {
+    public static HttpResponse httpGet(String url, String contentType) throws IOException, URISyntaxException {
         Map<String, String> headers = new HashMap<>(1);
         headers.put("Content-Type", contentType);
         return httpGetImpl(url, headers, Default_Timeout);
     }
 
-    public static HttpResponse httpGet(String url, String contentType, int timeout) throws IOException {
+    public static HttpResponse httpGet(String url, String contentType, int timeout) throws IOException, URISyntaxException {
         Map<String, String> headers = new HashMap<>(1);
         headers.put("Content-Type", contentType);
         return httpGetImpl(url, headers, timeout);
     }
 
-    public static HttpResponse httpGet(String url, Map<String, String> headers) throws IOException {
+    public static HttpResponse httpGet(String url, Map<String, String> headers) throws IOException, URISyntaxException {
         return httpGetImpl(url, headers, Default_Timeout);
     }
 
-    public static HttpResponse httpGet(String url, Map<String, String> headers, int timeout) throws IOException {
+    public static HttpResponse httpGet(String url, Map<String, String> headers, int timeout) throws IOException, URISyntaxException {
         return httpGetImpl(url, headers, timeout);
     }
 
-    private static HttpResponse httpGetImpl(String url, Map<String, String> headers, int timeout) throws IOException {
+    private static HttpResponse httpGetImpl(String urlStr, Map<String, String> headers, int timeout) throws IOException, URISyntaxException {
         RequestConfig config = RequestConfig.custom().setSocketTimeout(timeout).setConnectTimeout(timeout).build();
-        HttpGet httpGet = new HttpGet(url);
+        URL url = new URL(urlStr);
+        URI uri = new URI(url.getProtocol(), url.getHost() + ":" + url.getPort(),url.getPath(), url.getQuery(), null);
+        HttpGet httpGet = new HttpGet(uri);
         httpGet.setConfig(config);
         if (headers != null && headers.size() > 0) {
             for (Map.Entry<String, String> kv : headers.entrySet()) {
