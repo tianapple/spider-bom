@@ -71,9 +71,9 @@ public class ZookeeperLock {
             try {
                 synchronized (this) {
                     if (zkClient == null) {
-                        LOGGER.info("connect zookeeper: {}", zkAddress);
+                        LOGGER.info("Connect zookeeper: {}", zkAddress);
                         zkClient = new ZooKeeper(zkAddress, timeout, watcher);
-                        LOGGER.info("connect success {}!", zkClient);
+                        LOGGER.info("Connect success {}!", zkClient);
                     }
                 }
             } catch (IOException e) {
@@ -129,7 +129,7 @@ public class ZookeeperLock {
         String curLockName = lockPath.substring(lockRootPath.length() + 1);
         int index = allLockNames.indexOf(curLockName); //返回在数组目录中的索引，如果是0则表示获取到了锁
         if (index == 0) {
-            LOGGER.info("{} get lock path: {}", Thread.currentThread().getName(), lockPath);
+            LOGGER.info("get lock path: {}", lockPath);
             return true;
         } else {
             String preLockName = allLockNames.get(index - 1);
@@ -139,7 +139,7 @@ public class ZookeeperLock {
             if (state == null) {
                 return tryLock(lockPath);
             } else {
-                LOGGER.info("{} wait lock for: {}", Thread.currentThread().getName(), preLockName);
+                LOGGER.info("waiting lock for: {}", preLockName);
                 synchronized (waitWatcher) {
                     waitWatcher.wait(); // 等待目录删除事件唤醒
                 }
