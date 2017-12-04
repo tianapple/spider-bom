@@ -80,18 +80,6 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
-                <exclusions>
-                    <!--打包到spider.jar不在单独发布 2016-12-07-->
-                    <exclusion>
-                        <groupId>aopalliance</groupId>
-                        <artifactId>aopalliance</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>aopalliance</groupId>
-                <artifactId>aopalliance</artifactId>
-                <version>1.0</version>
             </dependency>
             <!--mybatis-->
             <dependency>
@@ -108,13 +96,6 @@
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>2.3.7</version>
-                <!--<exclusions>-->
-                    <!--&lt;!&ndash;打包到spider.jar不在单独发布 2016-12-07 ,考虑独立出来，否则重复的包太多&ndash;&gt;-->
-                    <!--<exclusion>-->
-                        <!--<groupId>org.javassist</groupId>-->
-                        <!--<artifactId>javassist</artifactId>-->
-                    <!--</exclusion>-->
-                <!--</exclusions>-->
             </dependency>
             <dependency>
                 <groupId>org.javassist</groupId>

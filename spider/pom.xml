@@ -27,10 +27,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-        </dependency>
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -106,7 +102,7 @@
                                     <!--<include>com.101tec:zkclient</include>-->
                                     <!--<include>org.javassist:javassist</include>-->
                                     <!--<include>jline:jline</include>-->
-                                    <include>aopalliance:aopalliance</include>
+                                    <!--<include>aopalliance:aopalliance</include>-->
                                     <!--日志相关-->
                                     <include>org.slf4j:jcl-over-slf4j</include>
                                     <include>org.slf4j:jul-to-slf4j</include>
